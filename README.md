@@ -5,11 +5,8 @@ Develop an app for talks at a conference.
 
 ● Demonstrate the use of REST conventions
 
-● Include endpoints to:
-  ○ add a talk
-  ○ add an attendee
-  ○ add an attendee to a talk
-
+### Include endpoints:
+  
   ```mermaid
  graph TD;
    A[Compulsory Endpoints]-->B[Add a talk];
