@@ -6,7 +6,6 @@ Develop an app for talks at a conference.
 ● Demonstrate the use of REST conventions
 
 ### Endpoints:
-  
   ```mermaid
  graph TD;
    A[Compulsory Endpoints]-->B[Add a talk];
