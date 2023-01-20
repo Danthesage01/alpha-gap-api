@@ -2,11 +2,15 @@ Develop an app for talks at a conference.
 
 ### Requirements:
 ● Build a REST API for the app
+
 ● Demonstrate the use of REST conventions
+
 ● Include endpoints to:
-○ add a talk
-○ add an attendee
-○ add an attendee to a talk
+  ○ add a talk
+  ○ add an attendee
+  ○ add an attendee to a talk
+
+  
 
 ### Solution:
 
