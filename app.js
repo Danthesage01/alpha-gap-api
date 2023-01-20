@@ -28,9 +28,14 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
+
+app.get("/", (req, res) => {
+  res.send("<h1>Alpha Gap Talks API</h1><a href='/api-docs'>Documentation</a>");
+});
+
 // MIDDLEWARE FOR ROUTES
-app.use("/talks", talkRouter);
-app.use("/attendees", attendeeRouter);
+app.use("/api/v1/talks", talkRouter);
+app.use("/api/v1/attendees", attendeeRouter);
 
 // MIDDLEWARE FOR ERROR
 app.use(notFoundMiddleware);
