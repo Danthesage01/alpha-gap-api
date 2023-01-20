@@ -10,7 +10,12 @@ Develop an app for talks at a conference.
   ○ add an attendee
   ○ add an attendee to a talk
 
-  
+  ```mermaid
+ graph TD;
+   A[Compulsory Endpoints]-->B[Add a talk];
+   A[Compulsory Endpoints]-->C[Add an attendee];
+   A[Compulsory Endpoints]-->D[Add an attendee to a talk];
+```
 
 ### Solution:
 
