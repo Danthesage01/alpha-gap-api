@@ -1,11 +1,11 @@
-Develop an app for talks at a conference.
+## Develop an app for talks at a conference.
 
-### Requirements:
+## Requirements:
 ● Build a REST API for the app
 
 ● Demonstrate the use of REST conventions
 
-### Endpoints:
+## Endpoints:
   ```mermaid
  graph TD;
    A[Compulsory Endpoints]-->B[Add a talk];
@@ -13,7 +13,7 @@ Develop an app for talks at a conference.
    A[Compulsory Endpoints]-->D[Add an attendee to a talk];
 ```
 
-### Solution:
+## Solution:
 
 I created a RESTful API using the following endpoints:
 
@@ -39,7 +39,7 @@ DELETE /attendees/:attendeeId – This endpoint allows you to delete any registe
 
 
 
-# LINKS
+## LINKS
 
 ### Root URL ---  https://alpha-gaps.onrender.com/
 
