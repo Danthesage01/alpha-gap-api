@@ -39,3 +39,15 @@ DELETE /attendees/:attendeeId – This endpoint allows you to delete any registe
 
 
 
+### LINKS
+
+# Root URL ---  https://alpha-gaps.onrender.com/
+
+# Docs URL --- https://alpha-gaps.onrender.com/api-docs/
+
+# Bare URL --- https://alpha-gaps.onrender.com/api-docs/api/v1
+
+# Talks Endpoint --- https://alpha-gaps.onrender.com/api-docs/api/v1/talks
+
+# Attendees URL --- https://alpha-gaps.onrender.com/api-docs/api/v1/attendees
+
