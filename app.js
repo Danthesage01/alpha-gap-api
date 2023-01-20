@@ -41,7 +41,9 @@ app.get("/", (req, res) => {
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.get("/api/v1", (req, res)=>{
-res.send("Please use the docs to get the best of this API.")
+res.send(
+  "<p>Please use the docs to navigate this API.</p><span>Go to <a href='/api-docs'>Docs</a></span>"
+);
 })
 
 // MIDDLEWARE FOR ROUTES
