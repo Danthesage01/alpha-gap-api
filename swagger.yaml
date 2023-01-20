@@ -1,0 +1,265 @@
+openapi: 3.0.0
+info:
+  title: Alpha Gaps Talks API
+  contact: {}
+  version: '1.0'
+servers:
+  - url: https://alpha-gaps.onrender.com/api/v1
+    variables: {}
+paths:
+  /talks:
+    post:
+      tags:
+        - Talks
+      summary: ADD A NEW TALK
+      operationId: ADDANEWTALK
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/ADDANEWTALKREQUEST'
+                - example:
+                    title: Advancement of Web3.0
+                    speaker: Destiny Okigbe
+                    capacity: '200'
+            example:
+              title: Advancement of Web3.0
+              speaker: Destiny Okigbe
+              capacity: '200'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+        - Talks
+      summary: GET ALL TALKS
+      operationId: GETALLTALKS
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+
+      
+  /talks/{talkId}: 
+    parameters:
+      - in: path
+        name: talkId
+        schema:
+          type: string
+        required: true
+        description: The talk ID
+    get:
+      tags:
+        - Talks
+      summary: GET A SINGLE TALK
+      operationId: GETASINGLETALK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      
+  
+    delete:
+      tags:
+        - Talks
+      summary: DELETE A TALK
+      operationId: DELETEATALK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      
+  /talks/{talkId}/attendees: 
+    parameters:
+      - in: path
+        name: talkId
+        schema:
+          type: string
+        required: true
+        description: The talk ID
+    post:
+      tags:
+        - Talks
+      summary: ADD AN ATTENDEE TO A TALK
+      operationId: ADDANATTENDEETOATALK
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/ADDANATTENDEETOATALKREQUEST'
+                - example:
+                    name: King math
+                    email: king@gmail.com
+            example:
+              name: King math
+              email: king@gmail.com
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+
+    get:
+      tags:
+        - Talks
+      summary: GET ATTENDEES OF A TALK
+      operationId: GETATTENDEESOFATALK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+ 
+  /talks/{talkId}/attendees/{attendeeId}:
+    parameters:
+      - in: path
+        name: talkId
+        schema:
+          type: string
+        required: true
+        description: The talk ID
+      - in: path
+        name: attendeeId
+        schema:
+          type: string
+        required: true
+        description: The attendee ID
+    delete:
+      tags:
+        - Talks
+      summary: DELETE ATTENDEE OF A TALK
+      operationId: DELETEATTENDEEOFATALK
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      
+  /attendees:
+    post:
+      tags:
+        - Attendees
+      summary: ADD A NEW ATTENDEE
+      operationId: ADDANEWATTENDEE
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/ADDANEWATTENDEEREQUEST'
+                - example:
+                    name: attendee four
+                    email: four@gmail.com
+            example:
+              name: attendee four
+              email: four@gmail.com
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    get:
+      tags:
+        - Attendees
+      summary: GET ALL ATTENDEES
+      operationId: GETALLATTENDEES
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      
+  /attendees/{attendeeId}: 
+    parameters:
+      - in: path
+        name: attendeeId
+        schema:
+          type: string
+        required: true
+        description: The attendee ID
+    delete:
+      tags:
+        - Attendees
+      summary: DELETE AN ATTENDEE
+      operationId: DELETEANATTENDEE
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    ADDANEWTALKREQUEST:
+      title: ADDANEWTALKREQUEST
+      required:
+        - title
+        - speaker
+        - capacity
+      type: object
+      properties:
+        title:
+          type: string
+        speaker:
+          type: string
+        capacity:
+          type: string
+      example:
+        title: Advancement of Web3.0
+        speaker: Destiny Okigbe
+        capacity: '200'
+    ADDANATTENDEETOATALKREQUEST:
+      title: ADDANATTENDEETOATALKREQUEST
+      required:
+        - name
+        - email
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+      example:
+        name: King math
+        email: king@gmail.com
+    ADDANEWATTENDEEREQUEST:
+      title: ADDANEWATTENDEEREQUEST
+      required:
+        - name
+        - email
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+      example:
+        name: attendee four
+        email: four@gmail.com
+tags:
+  - name: Talks
+    description: ''
+  - name: Attendees
+    description: ''
