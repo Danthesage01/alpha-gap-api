@@ -40,7 +40,9 @@ app.get("/", (req, res) => {
 });
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-
+app.get("/api/v1", (req, res)=>{
+res.send("Please use the docs to get the best of this API.")
+})
 
 // MIDDLEWARE FOR ROUTES
 app.use("/api/v1/talks", talkRouter);
