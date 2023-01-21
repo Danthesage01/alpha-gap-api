@@ -5,12 +5,27 @@ const { NotFoundError, BadRequestError } = require("../errors");
 
 const addTalk = async (req, res) => {
   const talk = await Talks.create(req.body);
-  res.status(StatusCodes.CREATED).json({ talk });
+  res
+    .status(StatusCodes.CREATED)
+    .json({
+      talk,
+      msg: `talk added successfully`,
+      status: StatusCodes.CREATED,
+      statusText: `CREATED`,
+    });
 };
 
 const getTalks = async (req, res) => {
   const talks = await Talks.find({});
-  res.status(StatusCodes.OK).json({ talks });
+  res
+    .status(StatusCodes.OK)
+    .json({
+      talks,
+      msg: `request successful`,
+      nbHits: talks.length,
+      status: StatusCodes.OK,
+      statusText: `OK`,
+    });
 };
 
 const addAttendeeToTalk = async (req, res) => {
@@ -21,7 +36,14 @@ const addAttendeeToTalk = async (req, res) => {
   req.body._talkId = req.params.talkId;
   req.body.talkTitle = talk.title;
   const attendee = await Attendees.create(req.body);
-  res.status(StatusCodes.CREATED).json({ attendee });
+  res
+    .status(StatusCodes.CREATED)
+    .json({
+      attendee,
+      msg: `attendee added to talk successfully`,
+      status: StatusCodes.CREATED,
+      statusText: `CREATED`,
+    });
 };
 
 const getAttendeesOfATalk = async (req, res) => {
@@ -37,7 +59,14 @@ const getAttendeesOfATalk = async (req, res) => {
     throw new NotFoundError(`No attendees yet for this talk`);
   }
 
-  res.status(StatusCodes.OK).json({ attendees });
+  res
+    .status(StatusCodes.OK)
+    .json({
+      attendees,
+      msg: `request successful`,
+      status: StatusCodes.OK,
+      statusText: `OK`,
+    });
 };
 
 const getTalk = async (req, res) => {
@@ -47,7 +76,14 @@ const getTalk = async (req, res) => {
       `Talk with id:${req.params.talkId} no longer exist`
     );
   }
-  res.status(StatusCodes.CREATED).json({ talk });
+  res
+    .status(StatusCodes.CREATED)
+    .json({
+      talk,
+      msg: `request successful`,
+      status: StatusCodes.OK,
+      statusText: `OK`,
+    });
 };
 // const updateTalk = async (req, res) => {
 //   const { title, speaker, capacity } = req.body;
@@ -76,6 +112,8 @@ const deleteTalk = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({
     msg: `Talk with ${req.params.talkId} was removed successfully`,
+    status: StatusCodes.NO_CONTENT,
+    statusText: `NO CONTENT`,
   });
 };
 
@@ -89,6 +127,8 @@ const deleteAttendeeOfATalk = async (req, res) => {
   }
   res.status(StatusCodes.OK).json({
     msg: `Attendee with ${req.params.attendeeId} was removed from talk`,
+    status: StatusCodes.NO_CONTENT,
+    statusText: `NO CONTENT`,
   });
 };
 

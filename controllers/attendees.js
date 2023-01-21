@@ -4,12 +4,27 @@ const { NotFoundError } = require("../errors");
 
 const getAttendees = async (req, res) => {
  const attendees= await Attendees.find({})
-  res.status(StatusCodes.OK).json({ attendees});
+  res
+    .status(StatusCodes.OK)
+    .json({
+      attendees,
+      msg: `request successful`,
+      nbhits: attendees.length,
+      status: StatusCodes.OK,
+      statusText: `OK`,
+    });
 };
 
 const addAttendee = async (req, res) => {
   const attendee = await Attendees.create(req.body);
-  res.status(StatusCodes.CREATED).json({ attendee });
+  res
+    .status(StatusCodes.CREATED)
+    .json({
+      attendee,
+      msg: `attendee created successfully`,
+      status: StatusCodes.CREATED,
+      statusText: `CREATED`,
+    });
 };
 
 const deleteAttendee = async (req, res) => {
@@ -20,7 +35,9 @@ const deleteAttendee = async (req, res) => {
     throw new NotFoundError(`No attendee with id ${req.params.attendeeId}`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Attendee with ${req.params.attendeeId} was removed successfully`,
+    msg: `Attendee with ${req.params.attendeeId} removed successfully`,
+    status: StatusCodes.NO_CONTENT,
+    statusText: `NO_CONTENT`,
   });
 };
 
