@@ -4,6 +4,10 @@ const { NotFoundError } = require("../errors");
 
 const getAttendees = async (req, res) => {
  const attendees= await Attendees.find({}).sort("-createdAt")
+
+  if (attendees.length <= 0) {
+    throw new NotFoundError(`No attendees added yet.`);
+  }
   res
     .status(StatusCodes.OK)
     .json({
