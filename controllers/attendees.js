@@ -3,7 +3,7 @@ const { StatusCodes } = require("http-status-codes");
 const { NotFoundError } = require("../errors");
 
 const getAttendees = async (req, res) => {
- const attendees= await Attendees.find({})
+ const attendees= await Attendees.find({}).sort("-createdAt")
   res
     .status(StatusCodes.OK)
     .json({

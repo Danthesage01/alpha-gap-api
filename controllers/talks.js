@@ -16,7 +16,7 @@ const addTalk = async (req, res) => {
 };
 
 const getTalks = async (req, res) => {
-  const talks = await Talks.find({});
+  const talks = await Talks.find({}).sort("-createdAt");
   res
     .status(StatusCodes.OK)
     .json({
@@ -47,7 +47,7 @@ const addAttendeeToTalk = async (req, res) => {
 };
 
 const getAttendeesOfATalk = async (req, res) => {
-  const attendees = await Attendees.find({ _talkId: req.params.talkId });
+  const attendees = await Attendees.find({ _talkId: req.params.talkId }).sort("-createdAt");
   const talk = await Talks.findOne({ _id: req.params.talkId });
 
   if (!talk) {
