@@ -29,15 +29,16 @@ app.use(
     max: 100, // Limit each IP to 100 requests per windows
   })
 );
-const corsOptions ={
-    origin:'http://localhost:3000', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
+// const corsOptions ={
+//     origin:'http://localhost:3000', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(helmet());
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(xss());
 
 
