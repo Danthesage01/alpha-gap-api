@@ -44,7 +44,7 @@ const addAttendeeToTalk = async (req, res) => {
     .status(StatusCodes.CREATED)
     .json({
       attendee,
-      msg: `attendee added to talk successfully`,
+      msg: `attendee added to talk`,
       status: StatusCodes.CREATED,
       statusText: `CREATED`,
     });
@@ -77,7 +77,7 @@ const getTalk = async (req, res) => {
   const talk = await Talks.findOne({ _id: req.params.talkId });
   if (!talk) {
     throw new NotFoundError(
-      `Talk with id:${req.params.talkId} no longer exist`
+      `Talk no longer exist`
     );
   }
   res
@@ -115,7 +115,7 @@ const deleteTalk = async (req, res) => {
     throw new NotFoundError(`No talk with this id.`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Talk with was removed successfully`,
+    msg: `Talk was removed successfully`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
@@ -130,7 +130,7 @@ const deleteAttendeeOfATalk = async (req, res) => {
     throw new NotFoundError(`No attendee with this id}`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Attendee with was removed from talk`,
+    msg: `Attendee was removed from talk`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
