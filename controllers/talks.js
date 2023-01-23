@@ -56,7 +56,7 @@ const getAttendeesOfATalk = async (req, res) => {
 
   if (!talk) {
     throw new NotFoundError(
-      `Talk with id:${req.params.talkId} no longer exist`
+      `This talk no longer exist`
     );
   }
   // if (attendees.length <= 0) {
@@ -112,10 +112,10 @@ const deleteTalk = async (req, res) => {
     _id: req.params.talkId,
   });
   if (!talk) {
-    throw new NotFoundError(`No talk with id ${req.params.talkId}`);
+    throw new NotFoundError(`No talk with this id.`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Talk with ${req.params.talkId} was removed successfully`,
+    msg: `Talk with was removed successfully`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
@@ -127,10 +127,10 @@ const deleteAttendeeOfATalk = async (req, res) => {
     _talkId: req.params.talkId,
   });
   if (!attendee) {
-    throw new NotFoundError(`No attendee with id ${req.params.talkId}`);
+    throw new NotFoundError(`No attendee with this id}`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Attendee with ${req.params.attendeeId} was removed from talk`,
+    msg: `Attendee with was removed from talk`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
