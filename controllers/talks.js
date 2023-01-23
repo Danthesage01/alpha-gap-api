@@ -18,9 +18,9 @@ const addTalk = async (req, res) => {
 const getTalks = async (req, res) => {
   const talks = await Talks.find({}).sort("-createdAt");
 
-   if (talks.length <= 0) {
-     throw new NotFoundError(`No talks added yet.`);
-   }
+  //  if (talks.length <= 0) {
+  //    throw new NotFoundError(`No talks added yet.`);
+  //  }
   res
     .status(StatusCodes.OK)
     .json({
@@ -59,9 +59,9 @@ const getAttendeesOfATalk = async (req, res) => {
       `Talk with id:${req.params.talkId} no longer exist`
     );
   }
-  if (attendees.length <= 0) {
-    throw new NotFoundError(`No attendees added yet for this talk.`);
-  }
+  // if (attendees.length <= 0) {
+  //   throw new NotFoundError(`No attendees added yet for this talk.`);
+  // }
 
   res
     .status(StatusCodes.OK)
