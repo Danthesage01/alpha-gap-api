@@ -36,7 +36,7 @@ const deleteAttendee = async (req, res) => {
     throw new NotFoundError(`No attendee with id.`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Attendee removed successfully`,
+    msg: `attendee removed successfully`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO_CONTENT`,
   });
