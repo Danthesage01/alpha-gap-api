@@ -15,7 +15,7 @@
 
 ## Solution:
 
-I created a RESTful API using the following endpoints:
+I created a RESTful API with the following endpoints:
 
 POST /talks – This endpoint allows you to add a new talk.
 
