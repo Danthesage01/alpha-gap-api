@@ -77,7 +77,7 @@ const getTalk = async (req, res) => {
   const talk = await Talks.findOne({ _id: req.params.talkId });
   if (!talk) {
     throw new NotFoundError(
-      `Talk no longer exist`
+      `This talk no longer exist`
     );
   }
   res
@@ -115,7 +115,7 @@ const deleteTalk = async (req, res) => {
     throw new NotFoundError(`No talk with this id.`);
   }
   res.status(StatusCodes.OK).json({
-    msg: `Talk was removed successfully`,
+    msg: `Talk was removed`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
