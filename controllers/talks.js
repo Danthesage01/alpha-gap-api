@@ -108,18 +108,34 @@ const getTalk = async (req, res) => {
 // };
 
 const deleteTalk = async (req, res) => {
-  const talk = await Talks.findByIdAndRemove({
+  const talk = await Talks.findOne({
     _id: req.params.talkId,
   });
   if (!talk) {
     throw new NotFoundError(`No talk with this id.`);
   }
+
+  await talk.remove()
+  
   res.status(StatusCodes.OK).json({
     msg: `talk removed successfully`,
     status: StatusCodes.NO_CONTENT,
     statusText: `NO CONTENT`,
   });
 };
+// const deleteTalk = async (req, res) => {
+//   const talk = await Talks.findByIdAndRemove({
+//     _id: req.params.talkId,
+//   });
+//   if (!talk) {
+//     throw new NotFoundError(`No talk with this id.`);
+//   }
+//   res.status(StatusCodes.OK).json({
+//     msg: `talk removed successfully`,
+//     status: StatusCodes.NO_CONTENT,
+//     statusText: `NO CONTENT`,
+//   });
+// };
 
 const deleteAttendeeOfATalk = async (req, res) => {
   const attendee = await Attendees.findOneAndDelete({

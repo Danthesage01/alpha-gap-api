@@ -22,4 +22,8 @@ const TalkSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+TalkSchema.pre("remove", async function () {
+  await this.model("Attendee").deleteMany({ _talkId: this._id });
+});
+
 module.exports = mongoose.model("Talk", TalkSchema);
